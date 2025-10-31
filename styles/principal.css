@@ -1,0 +1,57 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.h-font{
+    font-family: 'Merienda', cursive;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.label-date{
+    font-weight: 500;
+}
+
+.custom-bg{
+    background-color: #ffb606;
+    border:1px solid #ffb606;
+}
+
+.custom-bg:hover{
+    background-color: #ff922b;
+    border-color: #ff922b;
+}
+
+.availability-form{
+    margin-top: -100px;
+    z-index: 2;
+    position: relative;
+
+}
+
+.card-style{
+    max-width: 350px;
+    margin: auto;
+}
+
+/*.swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }*/
+
+@media screen and (max-width: 575px){
+    .availability-form{
+        margin-top: 25px;
+        padding: 0 35px;
+    }
+}
