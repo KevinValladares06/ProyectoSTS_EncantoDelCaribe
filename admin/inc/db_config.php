@@ -3,7 +3,7 @@ $hname = "127.0.0.1";
 $uname = "root";
 $pass = "";
 $dbname = "reservas";
-$port = 3307;
+$port = 3306;
 
 // Create connection
 $con = mysqli_connect($hname, $uname, $pass, $dbname, $port);
@@ -23,22 +23,25 @@ function filteration($data){
     return $data;
 }
 
-function select($sql, $values, $datatypes){
+function update($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if($stmt = mysqli_prepare($con, $sql)){
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
         if(mysqli_stmt_execute($stmt)){
-            $res = mysqli_stmt_get_result($stmt);
+            $res =mysqli_stmt_affected_rows($stmt);
             return $res;
         }
         else{
             mysqli_stmt_close($stmt);
-            die("Error en la ejecución: ");
+            die("Error en la ejecución: - Update");
         }
         
     }
     else{
-        die("No se pudo preparar la consulta: ");
+        die("No se pudo preparar la consulta: - Update");
     }
 }
+
+
 ?>
