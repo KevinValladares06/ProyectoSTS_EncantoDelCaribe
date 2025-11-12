@@ -6,7 +6,7 @@
 <div class="col-lg-2 bg-dark border-top border-3 border-secondary" id="dashboard-menu"> 
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container-fluid flex-lg-column align-items-stretch">
-        <h4 class="mt-2">Admin Panel</h4>
+        <h4 class="mt-2 text-white">Admin Panel</h4>
         <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#adminDropdown" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">

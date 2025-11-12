@@ -12,6 +12,7 @@ adminLogin();
 </head>
 <body class="bg-light">
 
+<?php require ('inc/header.php'); ?>
     <?php include 'hbsAdmin/dashboard.hbs'; ?>
     
     <?php require('inc/scripts.php'); ?>

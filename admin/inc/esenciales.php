@@ -30,5 +30,4 @@ function alert($type, $msg)
                     </div>
                 alert;
 }
-
 ?>
