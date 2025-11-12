@@ -3,7 +3,7 @@
     <a href="logout.php" class="btn btn-light btn-sm">LOG OUT</a>
     </div>
 
-<div class="col-lg-2 bg-dark border-top border-3 border-secondary" id="dashboard-menu"> 
+<div class="col-lg-2 bg-dark border-top border-3 border-secondary" id="dashboard-menu">     
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container-fluid flex-lg-column align-items-stretch">
         <h4 class="mt-2 text-white">Admin Panel</h4>
