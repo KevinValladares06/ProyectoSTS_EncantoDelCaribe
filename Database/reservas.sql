@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 23, 2025 at 02:35 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 12-11-2025 a las 06:40:09
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `reservas`
+-- Base de datos: `reservas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `admin_cred`
+--
+
+CREATE TABLE `admin_cred` (
+  `id` int(11) NOT NULL,
+  `admin_nom` int(11) NOT NULL,
+  `admin_pass` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `admin_cred`
+--
+
+INSERT INTO `admin_cred` (`id`, `admin_nom`, `admin_pass`) VALUES
+(3, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -36,7 +55,27 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresa`
+-- Estructura de tabla para la tabla `configuraciones`
+--
+
+CREATE TABLE `configuraciones` (
+  `sr_no` int(11) NOT NULL,
+  `site_title` varchar(50) NOT NULL,
+  `site_about` varchar(250) NOT NULL,
+  `shutdown` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `configuraciones`
+--
+
+INSERT INTO `configuraciones` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
+(1, 'this is title ', 'About us content  ', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -52,7 +91,7 @@ CREATE TABLE `empresa` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `entradas`
+-- Estructura de tabla para la tabla `entradas`
 --
 
 CREATE TABLE `entradas` (
@@ -70,7 +109,7 @@ CREATE TABLE `entradas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `habitaciones`
+-- Estructura de tabla para la tabla `habitaciones`
 --
 
 CREATE TABLE `habitaciones` (
@@ -90,7 +129,7 @@ CREATE TABLE `habitaciones` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservas`
+-- Estructura de tabla para la tabla `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -112,7 +151,7 @@ CREATE TABLE `reservas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sliders`
+-- Estructura de tabla para la tabla `sliders`
 --
 
 CREATE TABLE `sliders` (
@@ -127,7 +166,7 @@ CREATE TABLE `sliders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -144,105 +183,136 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `admin_cred`
+--
+ALTER TABLE `admin_cred`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `empresa`
+-- Indices de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  ADD PRIMARY KEY (`sr_no`) USING BTREE;
+
+--
+-- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `entradas`
+-- Indices de la tabla `entradas`
 --
 ALTER TABLE `entradas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `habitaciones`
+-- Indices de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reservas`
+-- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_habitacion` (`id_habitacion`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `sliders`
+-- Indices de la tabla `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `admin_cred`
+--
+ALTER TABLE `admin_cred`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `empresa`
+-- AUTO_INCREMENT de la tabla `configuraciones`
+--
+ALTER TABLE `configuraciones`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `entradas`
+-- AUTO_INCREMENT de la tabla `entradas`
 --
 ALTER TABLE `entradas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `habitaciones`
+-- AUTO_INCREMENT de la tabla `habitaciones`
 --
 ALTER TABLE `habitaciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sliders`
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `entradas`
+-- Filtros para la tabla `entradas`
 --
 ALTER TABLE `entradas`
   ADD CONSTRAINT `entradas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `reservas`
+-- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
   ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_habitacion`) REFERENCES `habitaciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
