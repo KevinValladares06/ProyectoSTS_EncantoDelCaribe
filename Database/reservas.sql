@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2025 a las 06:40:09
+-- Tiempo de generación: 16-11-2025 a las 01:54:27
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -70,7 +70,33 @@ CREATE TABLE `configuraciones` (
 --
 
 INSERT INTO `configuraciones` (`sr_no`, `site_title`, `site_about`, `shutdown`) VALUES
-(1, 'this is title ', 'About us content  ', 0);
+(1, 'Hola', 'Este es mi sitio web', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contact_details`
+--
+
+CREATE TABLE `contact_details` (
+  `sr_no` int(11) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `gmap` varchar(100) NOT NULL,
+  `pn1` varchar(30) NOT NULL,
+  `pn2` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `fb` varchar(100) NOT NULL,
+  `ig` varchar(100) NOT NULL,
+  `tt` varchar(100) NOT NULL,
+  `iframe` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `contact_details`
+--
+
+INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `ig`, `tt`, `iframe`) VALUES
+(1, 'Calle, de Los Alcaldes, F.M.', 'https://maps.app.goo.gl/iyNSe7dE7R5DmbQd6', '2255 7488', '9841 6500', 'ask.encantodelcaribe@gmail.com', 'facebook.com', 'instagram.com', 'tiktok.com', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.6148620344256!2d-87.2366535!3d14.061301400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6f97e03b9d6069%3A0x11d5cc5575958857!2sC.%20de%20Los%20Alcaldes%2C%20Tegucigalpa%2C%20Francisco%20Moraz%C3%A1n!5e1!3m2!1ses!2shn!4v17632540');
 
 -- --------------------------------------------------------
 
@@ -205,6 +231,12 @@ ALTER TABLE `configuraciones`
   ADD PRIMARY KEY (`sr_no`) USING BTREE;
 
 --
+-- Indices de la tabla `contact_details`
+--
+ALTER TABLE `contact_details`
+  ADD PRIMARY KEY (`sr_no`);
+
+--
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
@@ -264,6 +296,12 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `configuraciones`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `contact_details`
+--
+ALTER TABLE `contact_details`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`

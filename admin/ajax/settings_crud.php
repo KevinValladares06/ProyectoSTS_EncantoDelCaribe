@@ -1,6 +1,7 @@
 <?php
 require('../inc/db_config.php');
 require('../inc/esenciales.php');
+adminLogin();
 
 /* ---------- Obtener datos ---------- */
 if (isset($_POST['get_general'])) {
@@ -33,6 +34,46 @@ if (isset($_POST['upd_shutdown'])) {
     $values = [$frm_data['shutdown'], 1];
     $res = update($q, $values, 'ii');
     echo $res;
+}
+
+
+if (isset($_POST['get_contacts'])) 
+{
+    $q = "SELECT * FROM contact_details WHERE sr_no = ?";
+    $values = [1];
+    $res = select($q, $values, "i");
+    $data = mysqli_fetch_assoc($res);
+    $json_data = json_encode($data);
+    echo $json_data;
+}
+
+/* ---------- Actualizar Contáctanos ---------- */
+if(isset($_POST['upd_contacts'])) {
+    $q = "UPDATE contact_details SET 
+          address=?, gmap=?, pn1=?, pn2=?, email=?, fb=?, ig=?, tt=?, iframe=? 
+          WHERE sr_no=?";
+    
+    $values = [
+        $_POST['address'],
+        $_POST['gmap'],
+        $_POST['pn1'],
+        $_POST['pn2'],
+        $_POST['email'],
+        $_POST['fb'],
+        $_POST['ig'],
+        $_POST['tt'],
+        $_POST['iframe'],
+        1
+    ];
+    
+    $res = update($q, $values, 'sssssssssi');
+    
+    if($res) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+    exit;
 }
 
 ?>
