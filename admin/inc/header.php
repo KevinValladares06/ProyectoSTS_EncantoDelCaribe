@@ -20,9 +20,9 @@
         <li class="nav-item">
             <a class="nav-link text-white" href="rooms.php">Habitaciones</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-white" href="users.php">Usuarios</a>
-        </li>
+        <!--<li class="nav-item">
+            <a class="nav-link text-white" href="carousel.php">Carousel</a>
+        </li>-->
         <li class="nav-item">
             <a class="nav-link text-white" href="configuraciones.php">Configuraciones</a>
         </li>

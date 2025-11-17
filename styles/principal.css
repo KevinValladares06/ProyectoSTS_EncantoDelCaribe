@@ -42,6 +42,12 @@ input[type=number] {
     margin: auto;
 }
 
+.custom-alert{
+    position: fixed;
+    top: 80px;
+    right: 25px;
+}
+
 /*.swiper-slide {
       background-position: center;
       background-size: cover;

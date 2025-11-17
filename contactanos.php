@@ -64,35 +64,52 @@
 
         <div class="col-lg-6 col-md-6 px-4">
             <div class="bg-white rounded shadow p-4">
-                <form id="form" class="form" action="">
+                <form method="POST">
                     <h5>Envíanos un Mensaje</h5>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Nombre:</label>
-                            <input type="text" class="form-control shadow-none" >
+                            <input name="nombre" required type="text" class="form-control shadow-none" >
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Apellido:</label>
-                            <input type="text" class="form-control shadow-none" >
+                            <input name="apellido" required type="text" class="form-control shadow-none" >
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Correo Electrónico:</label>
-                            <input type="email" class="form-control shadow-none" >
+                            <input name="correo" required type="email" class="form-control shadow-none" >
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Teléfono:</label>
-                            <input type="text" class="form-control shadow-none" >
+                            <input name="telefono" required type="text" class="form-control shadow-none" >
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Mensaje:</label>
-                            <textarea class="form-control shadow-none" rows="5"></textarea>
+                            <textarea name="mensaje" required class="form-control shadow-none" rows="5"></textarea>
                         </div>
-                    <button type="submit"class="btn text-white custom-bg mt-3">Enviar</button>
+                    <button type="submit" name="enviar" class="btn text-white custom-bg mt-3">Enviar</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
+
+<?php 
+    if(isset($_POST['enviar']))
+    {
+        $frm_data = filteration($_POST);
+
+        $q = "INSERT INTO `user_queries`(`nombre`, `apellido`, `correo`, `telefono`, `mensaje`) VALUES (?,?,?,?,?)";
+        $values = [$frm_data['nombre'],$frm_data['apellido'],$frm_data['correo'],$frm_data['telefono'],$frm_data['mensaje']];
+
+        $res = insert($q, $values, 'sssss');
+        if($res==1){
+            alert('success', 'Mail Enviado');
+        } else {
+            alert('error', 'Error');
+        }
+    }
+?>
 
     <!-- Footer -->
     <?php require('inc/footer.php');?>
