@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2025 a las 01:54:27
+-- Tiempo de generación: 17-11-2025 a las 05:13:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -82,8 +82,8 @@ CREATE TABLE `contact_details` (
   `sr_no` int(11) NOT NULL,
   `address` varchar(50) NOT NULL,
   `gmap` varchar(100) NOT NULL,
-  `pn1` varchar(30) NOT NULL,
-  `pn2` varchar(30) NOT NULL,
+  `pn1` bigint(20) NOT NULL,
+  `pn2` bigint(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `fb` varchar(100) NOT NULL,
   `ig` varchar(100) NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `contact_details` (
 --
 
 INSERT INTO `contact_details` (`sr_no`, `address`, `gmap`, `pn1`, `pn2`, `email`, `fb`, `ig`, `tt`, `iframe`) VALUES
-(1, 'Calle, de Los Alcaldes, F.M.', 'https://maps.app.goo.gl/iyNSe7dE7R5DmbQd6', '2255 7488', '9841 6500', 'ask.encantodelcaribe@gmail.com', 'facebook.com', 'instagram.com', 'tiktok.com', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.6148620344256!2d-87.2366535!3d14.061301400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6f97e03b9d6069%3A0x11d5cc5575958857!2sC.%20de%20Los%20Alcaldes%2C%20Tegucigalpa%2C%20Francisco%20Moraz%C3%A1n!5e1!3m2!1ses!2shn!4v17632540');
+(1, 'Calle, de Los Alcaldes, F.M', 'https://maps.app.goo.gl/iyNSe7dE7R5DmbQd6', 22459631, 98416500, 'ask.encantodelcaribe@gmail.com', 'https://www.facebook.com/?locale=es_LA', 'https://www.instagram.com/?flo=true', 'https://www.tiktok.com/foryou?lang=es', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.6148620344256!2d-87.2366535!3d14.061301400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6f97e03b9d6069:0x11d5cc5575958857!2sC. de Los Alcaldes, Tegucigalpa, Francisco Morazán!5e1!3m2!1ses!2shn!4v17632540');
 
 -- --------------------------------------------------------
 
@@ -192,6 +192,30 @@ CREATE TABLE `sliders` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `user_queries`
+--
+
+CREATE TABLE `user_queries` (
+  `sr_no` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `telefono` int(30) NOT NULL,
+  `mensaje` varchar(500) NOT NULL,
+  `fecha` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `user_queries`
+--
+
+INSERT INTO `user_queries` (`sr_no`, `nombre`, `apellido`, `correo`, `telefono`, `mensaje`, `fecha`) VALUES
+(1, 'Juan', 'Perez', 'juan@gmail.com', 95628454, 'hola', '2025-11-16'),
+(2, 'Ilda Mariel', 'Quezada Armijo', 'marielarmijo12@gmail.com', 84597125, 'Hola, esta es una prueba', '2025-11-16');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -270,6 +294,12 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `user_queries`
+--
+ALTER TABLE `user_queries`
+  ADD PRIMARY KEY (`sr_no`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -332,6 +362,12 @@ ALTER TABLE `reservas`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `user_queries`
+--
+ALTER TABLE `user_queries`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
