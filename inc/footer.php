@@ -14,15 +14,15 @@
             </div>
             <div class="col-lg-4 p-4">
                 <h5 class="mb-3">Siguenos</h5>
-                <a href="https://www.facebook.com/?locale=es_LA" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
+                <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
                     <i class="bi bi-facebook me-1"></i>Facebook
                 </a>
                 <br>
-                <a href="https://www.instagram.com/?flo=true" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
+                <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
                     <i class="bi bi-instagram me-1"></i>Instagram
                 </a>
                 <br>
-                <a href="https://www.tiktok.com/foryou?lang=es" class="d-inline-block text-dark text-decoration-none" target="_blank">
+                <a href="<?php echo $contact_r['tt'] ?>" class="d-inline-block text-dark text-decoration-none" target="_blank">
                     <i class="bi bi-tiktok me-1"></i>Tik Tok
                 </a>
                 <br>
@@ -81,4 +81,24 @@
         },
       }
     });
-  </script>
+</script>
+
+<script>
+    function setActive()
+    {
+       let navbar = document.getElementById('nav-bar');
+       let a_tags = navbar.getElementsByTagName('a');
+
+        for(i=0, i<a_tags.length; i++)
+        {
+        let file = a_tags[i].href.split('/').pop();
+        let file_name = file.split('.')[0];
+
+        if(document.location.href.indexOf(file_name)>=0){
+            a_tags[i].classList.add('active');
+        }
+
+       }
+    }
+    setActive();
+</script>

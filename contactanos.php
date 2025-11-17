@@ -14,8 +14,85 @@
     <!--Navbar-->
     <?php  require('inc/header.php'); ?>
 
-    <!--Estructura-->
-    <?php include 'hbs/contactanos.hbs'; ?>
+    <div class="my-5 px-4">
+        <h2 class="fw-bold h-font text-center">Contáctanos</h2>
+        <div class="h-line bg-dark"></div>
+    </div>
+
+    <?php 
+        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` =?";
+        $values = [1];
+        $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
+    ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 mb-5 px-4">
+            <div class="bg-white rounded shadow p-4">
+                <iframe class="w-100 rounded mb-4" height="320px" src="<?php echo $contact_r['iframe'] ?>" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h5>Dirección</h5>
+                    <a href="<?php echo $contact_r['gmap'] ?>" target="_blank" class="d-inline-block text-decoration-none text-dark mb-2">
+                        <i class="bi bi-geo-alt-fill"></i> <?php echo $contact_r['address'] ?>
+                    </a>
+                <h5 class="mt-4">Llámanos</h5>
+                    <a class="d-inline-block mb-2 text-decoration-none text-dark"> 
+                        <i class="bi bi-telephone-fill"></i> <?php echo $contact_r['pn1'] ?>
+                    </a>
+                    <br>
+                    <a class="d-inline-block text-decoration-none text-dark"> 
+                        <i class="bi bi-telephone-fill"></i> <?php echo $contact_r['pn2'] ?>
+                    </a>
+                <h5 class="mt-4">Email</h5>
+                    <a href="mailto: ask.encantodelcaribe@gmail.com" class="d-inline-block text-decoration-none text-dark mb-2">
+                        <i class="bi bi-envelope-fill"></i> <?php echo $contact_r['email'] ?>
+                    </a>
+                <h5 class="mt-4">Nuestras Redes Sociales</h5>
+                    <a href="<?php echo $contact_r['fb'] ?>" 
+                        class="d-inline-block text-dark fs-5 me-2" target="_blank"> 
+                        <i class="bi bi-facebook me-1"></i>
+                    </a>
+                    <a href="<?php echo $contact_r['ig'] ?>" 
+                        class="d-inline-block text-dark fs-5 me-2" target="_blank"> 
+                        <i class="bi bi-instagram me-1"></i>
+                    </a>
+                    <a href="<?php echo $contact_r['tt'] ?>" 
+                        class="d-inline-block text-dark fs-5" target="_blank"> 
+                        <i class="bi bi-tiktok me-1"></i>
+                    </a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 px-4">
+            <div class="bg-white rounded shadow p-4">
+                <form id="form" class="form" action="">
+                    <h5>Envíanos un Mensaje</h5>
+                        <div class="mt-3">
+                            <label class="form-label" style="font-weight: 500;">Nombre:</label>
+                            <input type="text" class="form-control shadow-none" >
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" style="font-weight: 500;">Apellido:</label>
+                            <input type="text" class="form-control shadow-none" >
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" style="font-weight: 500;">Correo Electrónico:</label>
+                            <input type="email" class="form-control shadow-none" >
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" style="font-weight: 500;">Teléfono:</label>
+                            <input type="text" class="form-control shadow-none" >
+                        </div>
+                        <div class="mt-3">
+                            <label class="form-label" style="font-weight: 500;">Mensaje:</label>
+                            <textarea class="form-control shadow-none" rows="5"></textarea>
+                        </div>
+                    <button type="submit"class="btn text-white custom-bg mt-3">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- Footer -->
     <?php require('inc/footer.php');?>
