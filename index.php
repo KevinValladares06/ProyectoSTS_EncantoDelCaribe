@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Encanto del Caribe</title>
-    <?php require('inc/links.php');?>
+    <?php require('inc/links.php'); ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="styles/principal.css">
 </head>
+
 <body class="bg-light">
 
     <!--Navbar-->
-    <?php  require('inc/header.php'); ?>
+    <?php require('inc/header.php'); ?>
 
-        <div class="container-fluid px-lg-4 mt-4">
+    <div class="container-fluid px-lg-4 mt-4">
         <div class="swiper swiper-container">
             <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="images/carousel/img1.png" class="w-100 d-block">
-            </div>
-            <div class="swiper-slide">
-                <img src="images/carousel/img2.png" class="w-100 d-block">
-            </div>
-            <div class="swiper-slide">
-                <img src="images/carousel/img3.png" class="w-100 d-block">
-            </div>
-            <div class="swiper-slide">
-                <img src="images/carousel/img4.png" class="w-100 d-block">
-            </div>
+
+                <?php
+                /* $res = selectAll('carousel');
+                    while ($row = mysqli_fetch_assoc($res)) {
+                        $path = CAROUSEL_IMG_PATH;
+                        echo <<< data
+                    $path$row[image]
+                    data;
+                    }*/
+                ?>
+                <div class="swiper-slide">
+                    <img src="images/carousel/img1.png" class="w-100 d-block">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/img2.png" class="w-100 d-block">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/img3.png" class="w-100 d-block">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/img4.png" class="w-100 d-block">
+                </div>
             </div>
         </div>
     </div>
@@ -39,24 +51,24 @@
                 <form>
                     <div class="row align-items-end">
                         <div class="col-lg-3 mb-3">
-                            <label class="form-label label-date" >Fecha llegada</label>
-                            <input type="date" class="form-control shadow-none" >
+                            <label class="form-label label-date">Fecha llegada</label>
+                            <input type="date" class="form-control shadow-none">
                         </div>
                         <div class="col-lg-3 mb-3">
-                            <label class="form-label label-date" >Fecha salida</label>
-                            <input type="date" class="form-control shadow-none" >
+                            <label class="form-label label-date">Fecha salida</label>
+                            <input type="date" class="form-control shadow-none">
                         </div>
                         <div class="col-lg-3 mb-3">
-                           <label class="form-label label-date" >Adulto</label>
-                           <select class="form-select">
+                            <label class="form-label label-date">Adulto</label>
+                            <select class="form-select">
                                 <option value="1">Uno</option>
                                 <option value="2">Dos</option>
                                 <option value="3">Tres</option>
                             </select>
                         </div>
                         <div class="col-lg-2 mb-3">
-                           <label class="form-label label-date" >Niños</label>
-                           <select class="form-select">
+                            <label class="form-label label-date">Niños</label>
+                            <select class="form-select">
                                 <option value="1">Uno</option>
                                 <option value="2">Dos</option>
                                 <option value="3">Tres</option>
@@ -99,7 +111,7 @@
                         <div class="facilities mb-4">
                             <h6 class="mb-1">Servicios</h6>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Wifi 
+                                Wifi
                             </span>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
                                 Tv por cable
@@ -125,7 +137,7 @@
                             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Reservar Ahora</a>
                             <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -154,7 +166,7 @@
                         <div class="facilities mb-4">
                             <h6 class="mb-1">Servicios</h6>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Wifi 
+                                Wifi
                             </span>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
                                 Minibar
@@ -180,7 +192,7 @@
                             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Reservar Ahora</a>
                             <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -209,7 +221,7 @@
                         <div class="facilities mb-4">
                             <h6 class="mb-1">Servicios</h6>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Wifi 
+                                Wifi
                             </span>
                             <span class="badge rounded-pill bg-light text-dark text-wrap">
                                 Area de juegos
@@ -236,7 +248,7 @@
                             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Reservar Ahora</a>
                             <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -290,63 +302,64 @@
             <div class="swiper-wrapper mb-5">
                 <div class="swiper-slide bg-white p-4">
                     <div class="profile d-flex align-items-center mb-3">
-                    <img src="images/testimonio/u1.png" width="30px"> 
-                    <h6 class="m-0 ms-2">Usuario Random1</h6>
+                        <img src="images/testimonio/u1.png" width="30px">
+                        <h6 class="m-0 ms-2">Usuario Random1</h6>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Eum praesentium eveniet aliquid ratione 
-                        dolore 
-                        </p>
-                        <div class="rating">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                        </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Eum praesentium eveniet aliquid ratione
+                        dolore
+                    </p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
 
                 <div class="swiper-slide bg-white p-4">
                     <div class="profile d-flex align-items-center mb-3">
-                    <img src="images/testimonio/u1.png" width="30px"> 
-                    <h6 class="m-0 ms-2">Usuario Random2</h6>
+                        <img src="images/testimonio/u1.png" width="30px">
+                        <h6 class="m-0 ms-2">Usuario Random2</h6>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Eum praesentium eveniet aliquid ratione 
-                        dolore 
-                        </p>
-                        <div class="rating">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                        </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Eum praesentium eveniet aliquid ratione
+                        dolore
+                    </p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
 
                 <div class="swiper-slide bg-white p-4">
                     <div class="profile d-flex align-items-center mb-3">
-                    <img src="images/testimonio/u1.png" width="30px"> 
-                    <h6 class="m-0 ms-2">Usuario Random3</h6>
+                        <img src="images/testimonio/u1.png" width="30px">
+                        <h6 class="m-0 ms-2">Usuario Random3</h6>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                        elit. Eum praesentium eveniet aliquid ratione 
-                        dolore 
-                        </p>
-                        <div class="rating">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                        </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Eum praesentium eveniet aliquid ratione
+                        dolore
+                    </p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </div>
 
-    <?php 
-        $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` =?";
-        $values = [1];
-        $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
+    <?php
+    $contact_q = "SELECT * FROM `contact_details` WHERE `sr_no` =?";
+    $values = [1];
+    $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
+
     ?>
 
     <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Contáctanos</h2>
@@ -363,18 +376,22 @@
                     <br>
                     <a href="Telefono: 22557488" class="d-inline-block text-decoration-none text-dark"> <i class="bi bi-telephone"></i> <?php echo $contact_r['pn2'] ?></a>
                 </div>
+                <?php
+                if ($contact_r['pn2'] != '') {
+                }
+                ?>
 
                 <div class="bg-white p-4 rounded mb-4">
                     <h5>Síguenos</h5>
-                    <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank"> 
+                    <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
                         <span class="badge bg-light text-dark fs-6 p-2"> <i class="bi bi-facebook me-1"></i> Facebook </span>
                     </a>
                     <br>
-                    <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank"> 
+                    <a href="<?php echo $contact_r['ig'] ?>" class="d-inline-block text-dark text-decoration-none mb-2" target="_blank">
                         <span class="badge bg-light text-dark fs-6 p-2"> <i class="bi bi-instagram me-1"></i> Instagram </span>
                     </a>
                     <br>
-                    <a href="<?php echo $contact_r['tt'] ?>" class="d-inline-block text-dark text-decoration-none" target="_blank"> 
+                    <a href="<?php echo $contact_r['tt'] ?>" class="d-inline-block text-dark text-decoration-none" target="_blank">
                         <span class="badge bg-light text-dark fs-6 p-2"> <i class="bi bi-tiktok me-1"></i> Tiktok </span>
                     </a>
                 </div>
@@ -383,6 +400,7 @@
     </div>
 
     <!-- Footer -->
-    <?php require('inc/footer.php');?>
+    <?php require('inc/footer.php'); ?>
 </body>
+
 </html>

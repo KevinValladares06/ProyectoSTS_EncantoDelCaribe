@@ -11,7 +11,7 @@ if (isset($_POST['get_general'])) {
 
     $data = mysqli_fetch_assoc($res);
     echo json_encode($data);
-    exit; 
+    exit;
 }
 
 /* ---------- Actualizar datos ---------- */
@@ -36,9 +36,21 @@ if (isset($_POST['upd_shutdown'])) {
     echo $res;
 }
 
+/* ---------- Eliminar registro ---------- */
+if (isset($_POST['del_config'])) {
+    $frm_data = filteration($_POST);
 
-if (isset($_POST['get_contacts'])) 
-{
+    $q = "DELETE FROM configuraciones WHERE sr_no=?";
+    $values = [$frm_data['del_config']];
+    $res = delete($q, $values, 'i');
+
+    echo $res;
+    exit;
+}
+
+
+
+if (isset($_POST['get_contacts'])) {
     $q = "SELECT * FROM contact_details WHERE sr_no = ?";
     $values = [1];
     $res = select($q, $values, "i");
@@ -48,11 +60,11 @@ if (isset($_POST['get_contacts']))
 }
 
 /* ---------- Actualizar Contáctanos ---------- */
-if(isset($_POST['upd_contacts'])) {
+if (isset($_POST['upd_contacts'])) {
     $q = "UPDATE contact_details SET 
           address=?, gmap=?, pn1=?, pn2=?, email=?, fb=?, ig=?, tt=?, iframe=? 
           WHERE sr_no=?";
-    
+
     $values = [
         $_POST['address'],
         $_POST['gmap'],
@@ -65,15 +77,13 @@ if(isset($_POST['upd_contacts'])) {
         $_POST['iframe'],
         1
     ];
-    
+
     $res = update($q, $values, 'sssssssssi');
-    
-    if($res) {
+
+    if ($res) {
         echo 1;
     } else {
         echo 0;
     }
     exit;
 }
-
-?>

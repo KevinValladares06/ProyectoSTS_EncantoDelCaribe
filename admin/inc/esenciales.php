@@ -1,8 +1,21 @@
 <?php
 
-function adminLogin(){
+
+// --- Propósito frontend ---
+define('SITE_URL', 'http://127.0.0.1/ProyectoSTS_EncantoDelCaribe/');
+define('ABOUT_IMG_PATH', SITE_URL . 'images/about/');
+define('CAROUSEL_IMG_PATH', SITE_URL . 'images/carousel/');
+
+// --- Propósito backend (procesos de carga) ---
+define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/ProyectoSTS_EncantoDelCaribe/images/');
+define('ABOUT_FOLDER', 'about/');
+define('CAROUSEL_FOLDER', 'carousel/');
+
+
+function adminLogin()
+{
     session_start();
-    if(!(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true)){
+    if (!(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
         echo "
         <script>
             window.location.href = 'index.php';
@@ -17,7 +30,7 @@ function redirect($url)
         <script>
             window.location.href = '$url';
         </script>";
-        exit;
+    exit;
 }
 
 function alert($type, $msg)
@@ -30,4 +43,3 @@ function alert($type, $msg)
                     </div>
                 alert;
 }
-?>

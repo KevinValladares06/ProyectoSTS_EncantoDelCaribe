@@ -14,7 +14,8 @@ if (!$con) {
 }
 
 /* ---------- Función para limpiar datos ---------- */
-function filteration($data) {
+function filteration($data)
+{
     foreach ($data as $key => $value) {
         $value = trim($value);
         $value = stripslashes($value);
@@ -26,7 +27,8 @@ function filteration($data) {
 }
 
 /* ---------- SELECT ---------- */
-function select($sql, $values, $datatypes) {
+function select($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -43,7 +45,8 @@ function select($sql, $values, $datatypes) {
 }
 
 /* ---------- INSERT ---------- */
-function insert($sql, $values, $datatypes) {
+function insert($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -61,7 +64,8 @@ function insert($sql, $values, $datatypes) {
 }
 
 /* ---------- UPDATE ---------- */
-function update($sql, $values, $datatypes) {
+function update($sql, $values, $datatypes)
+{
     $con = $GLOBALS['con'];
     if ($stmt = mysqli_prepare($con, $sql)) {
         mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
@@ -77,4 +81,24 @@ function update($sql, $values, $datatypes) {
         die("Query cannot be prepared - UPDATE");
     }
 }
-?>
+
+
+
+/* ---------- DELETE ---------- */
+function delete($sql, $values, $datatypes)
+{
+    $con = $GLOBALS['con'];
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
+        if (mysqli_stmt_execute($stmt)) {
+            $res = mysqli_stmt_affected_rows($stmt);
+            mysqli_stmt_close($stmt);
+            return $res;
+        } else {
+            mysqli_stmt_close($stmt);
+            die("Query cannot be executed - DELETE");
+        }
+    } else {
+        die("Query cannot be prepared - DELETE");
+    }
+}

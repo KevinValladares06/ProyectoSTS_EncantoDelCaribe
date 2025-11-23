@@ -1,9 +1,10 @@
-<?php 
+<?php
 require('inc/esenciales.php');
 adminLogin();
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@ adminLogin();
 </head>
 
 <body class="bg-light">
-    
+
     <?php include('inc/header.php'); ?>
 
     <div class="container-fluid" id="main-content">
@@ -32,7 +33,7 @@ adminLogin();
                         <h6 class="card-subtitle mb-1 fw-bold">Título del Sitio</h6>
                         <p class="card-text" id="site_title"></p>
                         <h6 class="card-subtitle mb-1 fw-bold">Acerca de Nosotros</h6>
-                        <p class="card-text" id="site_about"></p>  
+                        <p class="card-text" id="site_about"></p>
                     </div>
                 </div>
 
@@ -51,7 +52,7 @@ adminLogin();
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label fw-bold">Acerca de Nosotros</label>
-                                        <textarea name="site_about" id="site_about_inp" class="form-control shadow-none" rows="6" required ></textarea>
+                                        <textarea name="site_about" id="site_about_inp" class="form-control shadow-none" rows="6" required></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -76,12 +77,12 @@ adminLogin();
                         </div>
                         <p class="card-text">
                             No customer will be able to access the website if enabled.
-                        </p>  
+                        </p>
                     </div>
                 </div>
 
                 <!-- Detalles Contáctanos -->
-                 <div class="card border-0 shadow-sm mb-4">
+                <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title m-0">Ajustes Contáctanos</h5>
@@ -97,22 +98,22 @@ adminLogin();
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="card-subtitle mb-1 fw-bold">Google Maps</h6>
-                                    <p class="card-text" id="gmap"></p> 
+                                    <p class="card-text" id="gmap"></p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="card-subtitle mb-1 fw-bold">Teléfonos</h6>
                                     <p class="card-text mb-1">
                                         <i class="bi bi-telephone-fill"></i>
                                         <span id="pn1"></span>
-                                    </p> 
+                                    </p>
                                     <p class="card-text">
                                         <i class="bi bi-telephone-fill"></i>
                                         <span id="pn2"></span>
-                                    </p> 
+                                    </p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="card-subtitle mb-1 fw-bold">Email</h6>
-                                    <p class="card-text" id="email"></p> 
+                                    <p class="card-text" id="email"></p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -121,22 +122,22 @@ adminLogin();
                                     <p class="card-text mb-1">
                                         <i class="bi bi-facebook me-1"></i>
                                         <span id="fb"></span>
-                                    </p> 
+                                    </p>
                                     <p class="card-text mb-1">
                                         <i class="bi bi-instagram me-1"></i>
                                         <span id="ig"></span>
-                                    </p> 
+                                    </p>
                                     <p class="card-text">
                                         <i class="bi bi-tiktok me-1"></i>
                                         <span id="tt"></span>
-                                    </p> 
+                                    </p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="card-subtitle mb-1 fw-bold">iFrame</h6>
                                     <iframe id="iframe" class="border p-2 w-100" loading="lazy"></iframe>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
 
@@ -209,6 +210,11 @@ adminLogin();
                     </div>
                 </div>
 
+
+
+
+
+
             </div> <!-- /col -->
         </div> <!-- /row -->
     </div> <!-- /container -->
@@ -216,4 +222,5 @@ adminLogin();
     <?php require('inc/scripts.php'); ?>
     <script src="scripts/configuraciones.js"></script>
 </body>
+
 </html>
