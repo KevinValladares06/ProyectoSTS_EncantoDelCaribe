@@ -1,7 +1,7 @@
 <?php
 require('inc/essentials.php');
 require('inc/db_config.php');
-
+adminLogin();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ require('inc/db_config.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Rooms</title>
+    <title>Panel Administrativo - Habitaciones</title>
     <?php require('inc/links.php'); ?>
 </head>
 <body  class="bg-light">
@@ -19,14 +19,14 @@ require('inc/db_config.php');
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">ROOMS</h3>
+                <h3 class="mb-4">Habitaciones</h3>
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
 
                         <div class="text-end mb-4">
                             <button type="button" class="btn- btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-room">
-                                <i class="bi bi-plus-square"></i>Add
+                                <i class="bi bi-plus-square"></i>Añadir
                             </button>
                         </div>
 
