@@ -183,7 +183,7 @@ if (isset($_GET['del']))
         </div>
     </div>
 
-    <?php require('inc/scripts.php'); ?>
+      <?php require('inc/scripts.php'); ?>
     <script src="admin/scripts/features_facilities.js"></script>
     
 </body>
