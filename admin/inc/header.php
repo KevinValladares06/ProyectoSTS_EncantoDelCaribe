@@ -20,9 +20,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="rooms.php">Habitaciones</a>
                     </li>
-                    <!--<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="features_facilities.php">Acerca de Nosotros</a>
-                    </li>-->
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="user_queries.php">Consultas de usuarios</a>
                     </li>

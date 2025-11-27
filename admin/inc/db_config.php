@@ -102,3 +102,22 @@ function delete($sql, $values, $datatypes)
         die("Query cannot be prepared - DELETE");
     }
 }
+
+/* ---------- SELECT ALL (tabla completa) ---------- */
+function selectAll($table)
+{
+    $con = $GLOBALS['con'];
+
+    $query = "SELECT * FROM `$table`";
+    $res = mysqli_query($con, $query);
+
+    if (!$res) {
+        die("Query cannot be executed - SELECT ALL: " . mysqli_error($con));
+    }
+
+    return $res;
+}
+
+
+
+

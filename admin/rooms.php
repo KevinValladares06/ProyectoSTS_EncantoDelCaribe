@@ -99,7 +99,7 @@ adminLogin();
                             $res = selectAll ('features');
                             while($opt = mysqli_fetch_assoc($res)){
                                 echo"
-                                <div class="col-md-3 mb-1">
+                                <div class='col-md-3 mb-1'>
                                 <label>
                                 <input type='checkbox' name='features' value='$opt[id]' class='form-check-input shadow-none'>
                                 $opt[name]
@@ -117,7 +117,7 @@ adminLogin();
                             $res = selectAll ('features');
                             while($opt = mysqli_fetch_assoc($res)){
                                 echo"
-                                <div class="col-md-3 mb-1">
+                                <div class='col-md-3 mb-1'>
                                 <label>
                                 <input type='checkbox' name='facilities' value='$opt[id]' class='form-check-input shadow-none'>
                                 $opt[name]
@@ -149,12 +149,12 @@ adminLogin();
             <form id="edit_room_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Room</h5>
+                        <h5 class="modal-title">Editar Habitación</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Name</label>
+                            <label class="form-label fw-bold">Nombre</label>
                             <input type="text" name="name" class="form-control shadow-none" required>
                         </div>
                         <div class=" col-md-6 mb-3">
@@ -162,29 +162,29 @@ adminLogin();
                             <input type="number" min="1" name="area" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Price</label>
+                            <label class="form-label fw-bold">Precio</label>
                             <input type="number" min="1" name="price" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Quantily</label>
+                            <label class="form-label fw-bold">Cantidad</label>
                             <input type="number" min="1" name="quantily" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Adult (Max .)</label>
+                            <label class="form-label fw-bold">Adultos (Max .)</label>
                             <input type="number" min="1" name="adult" class="form-control shadow-none" required>
                         </div>
                          <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Children (Max .)</label>
+                            <label class="form-label fw-bold">Niños (Max .)</label>
                             <input type="number" min="1" name="children" class="form-control shadow-none" required>
                         </div>
                         <div class=" col-12 mb-3">
-                           <label class="form-label fw-bold">Features</label>
+                           <label class="form-label fw-bold">Caracteristicas</label>
                            <div class="row">
                             <?php
                             $res = selectAll ('features');
                             while($opt = mysqli_fetch_assoc($res)){
                                 echo"
-                                <div class="col-md-3 mb-1">
+                                <div class='col-md-3 mb-1'>
                                 <label>
                                 <input type='checkbox' name='features' value='$opt[id]' class='form-check-input shadow-none'>
                                 $opt[name]
@@ -196,13 +196,13 @@ adminLogin();
                            </div>
                         </div>
                         <div class=" col-12 mb-3">
-                           <label class="form-label fw-bold">Facilities</label>
+                           <label class="form-label fw-bold">Servicios</label>
                            <div class="row">
                             <?php
                             $res = selectAll ('features');
                             while($opt = mysqli_fetch_assoc($res)){
                                 echo"
-                                <div class="col-md-3 mb-1">
+                                <div class='col-md-3 mb-1'>
                                 <label>
                                 <input type='checkbox' name='facilities' value='$opt[id]' class='form-check-input shadow-none'>
                                 $opt[name]
@@ -214,20 +214,59 @@ adminLogin();
                            </div>
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label fw-bold">Description</label>
+                            <label class="form-label fw-bold">Descripción</label>
                             <textarea name="desc" rows="4" class="form-control shadow-none" required></textarea>
                         </div>
                         <input type="hidden" name="room-id">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCELAR</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">ENVIAR</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+    <!-- Manage rooms images -->
+    <div class="modal fade" id="room-images" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" >Nombre Habitación</h1>
+            <button type="button" class="btn-close shasow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="image-alert">
+
+            </div>
+                    <div class="border-bottom border-3 pb-3 mb-3">
+                        <form id="add_image_form">
+                            <label for="form-label fw-bold">Añadir Imagen</label>
+                            <input type="file" name="image" accept=".png, .jpg, .jpeg" class="form-control shadow-none mb-3" required>
+                            <button type="submit" class="btn custom-bg text-white shadow-none">Añadir</button> 
+                            <input type="hidden" name="room_id">
+                        </form>
+                    </div>
+                    <div class="table-responsive-lg" style="height: 350px; overflow-y: scroll;">
+                            <table class="table table-hover border text-center">
+                                <thead class="sticky-top">
+                                    <tr class="bg-dark text-light sticky-top">
+                                        <th scope="col" width="60%">Imagen</th>
+                                        <th scope="col">Miniatura</th>
+                                        <th scope="col">Eliminar</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="room-image-data">
+                                </tbody>
+                            </table>
+                        </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
 
       <?php require('inc/scripts.php'); ?>
 
@@ -417,6 +456,144 @@ adminLogin();
         }
       xhr.send('toggle_status='+id+'&value='+val);
     }
+
+    let add_image_form = document.getElementById('add_image_form');
+
+    add_image_form.addEventListener('submit', function(e){
+        e.preventDefault();
+        add_image();
+      }); 
+
+    function add_image(){
+        let data = new FormData();
+        
+        data.append('image', add_image_form.elements['image'].files[0]);
+        data.append('room_id', add_image_form.elements['room_id'].value);
+        data.append('add_image','');
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/rooms.php", true);
+
+        xhr.onload = function()
+        {
+
+            if(this.responseText == 'inv_img'){
+                alert('error','Solo JPG, WEBP o PNG son aceptados', 'image-alert');
+            }
+            else if(this.responseText == 'inv_size'){
+                alert('error','Image should be less than 2MB!', 'image-alert');
+            }
+            else if(this.responseText == 'upd_failed'){
+                alert('error','Carga de imagen fallida. Server Down!', 'image-alert');
+            }
+            else{
+                alert('success','Nueva Imagen añadida!', 'image-alert');
+                room_images(add_image_form.elements['room_id'].value, document.querySelector('#room-images .modal-title').innerText);  
+                add_image_form.reset();
+            }
+        }
+        xhr.send(data);
+    }
+
+    function room_images(id,rname){
+        document.querySelector('#room-images .modal-title').innerText = rname;
+        add_image_form.elements['room_id'].value = id;   
+        add_image_form.elements['image'].value = '';   
+
+         let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/rooms.php", true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+     
+        xhr.onload = function(){
+          document.getElementById('room-image-data').innerHTML = this. responseText;
+        }
+      xhr.send('get_room_images='+id);
+    }
+
+    function rem_image(img_id, room_id)
+    {
+        let data = new FormData();
+        
+        data.append('image_id',img_id);
+        data.append('room_id', room_id);
+        data.append('rem_image','');
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/rooms.php", true);
+
+        xhr.onload = function()
+        {
+
+            if(this.responseText == 1){
+                
+                alert('success','Imagen Removida!', 'image-alert');
+                room_images(room_id, document.querySelector('#room-images .modal-title').innerText);  
+
+            }
+            else{
+                alert('error','La imagen no fue romovida', 'image-alert');
+                
+            }
+        }
+        xhr.send(data);
+    }
+
+    function thumb_image(img_id, room_id)
+    {
+        let data = new FormData();
+        
+        data.append('image_id',img_id);
+        data.append('room_id', room_id);
+        data.append('thumb_image','');
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/rooms.php", true);
+
+        xhr.onload = function()
+        {
+
+            if(this.responseText == 1){
+                
+                alert('success','Imagen thumbnail ha cambiado!', 'image-alert');
+                room_images(room_id, document.querySelector('#room-images .modal-title').innerText);  
+
+            }
+            else{
+                alert('error','Thumbnail no fue actualizado', 'image-alert');
+                
+            }
+        }
+        xhr.send(data);
+    }
+
+    function remove_room(room_id)
+    {
+        if(confirm("¿Estás seguro de eliminar esta habitación?")){
+            let data = new FormData();
+            data.append('room_id',room_id);
+            data.append('remove_room','');
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/rooms.php", true);
+
+            xhr.onload = function()
+            {
+
+                if(this.responseText == 1){
+                    
+                    alert('success','La habitación fue eliminada!');
+                    get_all_rooms();
+                }
+                else{
+                    alert('error','Fallo al eliminar habitación');
+                    
+                }
+            }
+            xhr.send(data);
+        }
+        
+    }
+    
 
     window.onload = function(){
         get_all_rooms();
