@@ -25,10 +25,10 @@ if(isset($_POST['add_room']))
     if($stat = mysqli_prepare($con, $q2))
     {
         foreach($facilities as $f){
-            mysqli_stat_bind_param($stat,'ii', $room_id, $f);
-            mysqli_stat_execute($stat);
+            mysqli_stmt_bind_param($stmt,'ii', $room_id, $f);
+            mysqli_stmt_execute($stmt);
         }
-        mysqli_stat_close($stat);
+        mysqli_stmt_close($stmt);
     }
     else{
         $flag = 0;
@@ -40,10 +40,10 @@ if(isset($_POST['add_room']))
     if($stat = mysqli_prepare($con, $q3))
     {
         foreach($features as $f){
-            mysqli_stat_bind_param($stat,'ii', $room_id, $f);
-            mysqli_stat_execute($stat);
+            mysqli_stmt_bind_param($stmt,'ii', $room_id, $f);
+            mysqli_stmt_execute($stmt);
         }
-        mysqli_stat_close($stat);
+        mysqli_stmt_close($stmt);
     }
     else{
         $flag = 0;
@@ -133,7 +133,7 @@ if(isset($_POST['get_room']))
     }
 
     $data = ["roomdata" => $roomdata, "features" => $features, "facilities" => $facilities];
-    $data = json_endcode($data);
+    $data = json_encode($data);
     echo $data;
 }
 
@@ -165,11 +165,11 @@ if(isset($_POST['edit_room']))
     if($stat = mysqli_prepare($con, $q2))
     {
         foreach($facilities as $f){
-            mysqli_stat_bind_param($stmt,'ii', $frm_data ['room_id'], $f);
+            mysqli_stmt_bind_param($stmt,'ii', $frm_data ['room_id'], $f);
             mysqli_stmt_execute($stmt);
         }
         $flag = 1;
-        mysqli_stat_close($stmt);
+        mysqli_stmt_close($stmt);
     }
     else{
         $flag = 0;
@@ -181,10 +181,10 @@ if(isset($_POST['edit_room']))
     if($stat = mysqli_prepare($con, $q3))
     {
         foreach($features as $f){
-            mysqli_stat_bind_param($stmt,'ii', $frm_data ['room_id'], $f);
-            mysqli_stat_execute($stmt);
+            mysqli_stmt_bind_param($stmt,'ii', $frm_data ['room_id'], $f);
+            mysqli_stmt_execute($stmt);
         }
-        mysqli_stat_close($stmt);
+        mysqli_stmt_close($stmt);
     }
     else{
         $flag = 0;
@@ -205,7 +205,7 @@ if(isset($_POST['toggle_status']))
    $frm_data = filteration($_POST);
 
    $q = "UPDATE `rooms` SET `status`= ? WHERE `id`= ?";
-   $v =[$frm_data['value'], $frm_data['toogle_status']];
+   $v =[$frm_data['value'], $frm_data['toggle_status']];
 
    if(update($q, $v, 'ii')){
     echo 1;

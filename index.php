@@ -87,60 +87,108 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow card-style">
-                    <img src="images/habitaciones/h1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5>Habitación Sencilla</h5>
-                        <h6 class="mb-4">Lps 1000.00 por noche</h6>
-                        <div class="features mb-4">
-                            <h6 class="mb-1">Características</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                2 camas
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                1 Baño
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                1 Balcón
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                1 Sala
-                            </span>
-                        </div>
-                        <div class="facilities mb-4">
-                            <h6 class="mb-1">Servicios</h6>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Wifi
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Tv por cable
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Aire acondicionado
-                            </span>
-                            <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                Desayuno
-                            </span>
-                        </div>
+            <?php
+                $room_res = select("SELECT * FROM `rooms` WHERE `status` = ? AND `removed` = ? ORDER BY `id` DESC LIMIT 3", [1, 0], 'ii');
 
-                        <div class="rating mb-4">
-                            <h6 class="mb-1">Calificación</h6>
-                            <span class="badge rounded-pill bg-light">
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                                <i class="bi bi-star-fill text-warning"></i>
-                            </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
-                            <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Reservar Ahora</a>
-                            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
+                while ($room_data = mysqli_fetch_assoc($room_res)) {
 
-                    </div>
-                </div>
-            </div>
+                    //obtener las caracteristicas de la habitacion
+                    $fea_q = mysqli_query($con, "SELECT f.name FROM `features` f 
+                    INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
+                    WHERE rfea.room_id = '$room_data[id]'");
+
+                    $features_data = "";
+                    while ($fea_row = mysqli_fetch_assoc($fea_q)) {
+                        $features_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
+                                $fea_row[name]
+                            </span>";
+                    }
+
+                    //obtener las comodidades de la habitacion
+
+                    $fac_q = mysqli_query($con, "SELECT f.name FROM `facilities` f 
+                    INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
+                    WHERE rfac.room_id = '$room_data[id]'");
+
+                    $facilities_data = "";
+                    while ($fac_row = mysqli_fetch_assoc($fac_q)) {
+                        $facilities_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
+                                $fac_row[name]
+                            </span>";
+                    }
+
+                    //obtener la imagen vista previa de la habitacion
+                    $room_thumb = ROOMS_IMG_PATH . "thumbnail.jpg";
+                    $thumb_q = mysqli_query($con, "SELECT * FROM `room_images` 
+                WHERE `room_id`='$room_data[id]' AND `thumb`='1'");
+
+                    if (mysqli_num_rows($thumb_q) > 0) {
+                        $thumb_res = mysqli_fetch_assoc($thumb_q);
+                        $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
+                    }
+
+                    //print carta de la habitacion
+                    echo <<<data
+                       <div class="col-lg-4 col-md-6 my-3">
+                                        <div class="card border-0 shadow card-style">
+                                            <img src="images/habitaciones/h1.jpg" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5>$room_data[name]</h5>
+                                                <h6 class="mb-4">Lps $room_data[price] por noche</h6>
+                                                <div class="features mb-4">
+                                                    <h6 class="mb-1">Características</h6>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        2 camas
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        1 Baño
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        1 Balcón
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        1 Sala
+                                                    </span>
+                                                </div>
+                                                <div class="facilities mb-4">
+                                                    <h6 class="mb-1">Servicios</h6>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        Wifi
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        Tv por cable
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        Aire acondicionado
+                                                    </span>
+                                                    <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                                        Desayuno
+                                                    </span>
+                                                </div>
+
+                                                <div class="rating mb-4">
+                                                    <h6 class="mb-1">Calificación</h6>
+                                                    <span class="badge rounded-pill bg-light">
+                                                        <i class="bi bi-star-fill text-warning"></i>
+                                                        <i class="bi bi-star-fill text-warning"></i>
+                                                        <i class="bi bi-star-fill text-warning"></i>
+                                                        <i class="bi bi-star-fill text-warning"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex justify-content-evenly mb-2">
+                                                    <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Reservar Ahora</a>
+                                                    <a href="hab_detalles.php?id=$room_data[id]" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                        </div>
+                        
+
+                    data;
+                }
+                ?>
+            
 
             <div class="col-lg-4 col-md-6 my-3">
                 <div class="card border-0 shadow card-style">
@@ -255,7 +303,7 @@
 
 
             <div class="col-lg-12 text-center mt-5">
-                <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Mas habitaciones</a>
+                <a href="habitaciones.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Mas habitaciones</a>
 
             </div>
         </div>
