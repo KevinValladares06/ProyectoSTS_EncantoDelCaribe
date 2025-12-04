@@ -3,7 +3,7 @@ $hname = "127.0.0.1";
 $uname = "root";
 $pass = "";
 $dbname = "reservas";
-$port = 3307;
+$port = 3306;
 
 // Create connection
 $con = mysqli_connect($hname, $uname, $pass, $dbname, $port);

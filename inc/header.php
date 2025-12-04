@@ -73,7 +73,7 @@
     <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form>
+                <form id="register-form">
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center" id="staticBackdropLabel">
                         <i class="bi bi-person-lines-fill fs-3 me-2"></i>    
@@ -90,39 +90,39 @@
                             <div class="row">
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control shadow-none" >
+                                    <input name="name" type="text" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
                                     <label class="form-label">Correo Electrónico</label>
-                                    <input type="email" class="form-control shadow-none" >
+                                    <input name="email" type="email" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Numero telefónico</label>
-                                    <input type="number" class="form-control shadow-none" >
+                                    <input name= "phonenum" type="number" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
                                     <label class="form-label">Imagen</label>
-                                    <input type="file" class="form-control shadow-none" >
+                                    <input name= "profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-12 p-0 mb-3">
                                     <label class="form-label">Dirección</label>
-                                    <textarea class="form-control shadow-none" rows="1"></textarea>
+                                    <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Codigo postal</label>
-                                    <input type="number" class="form-control shadow-none" >
+                                    <input name="pincode" type="number" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
                                     <label class="form-label">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control shadow-none" >
+                                    <input name="dob" type="date" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 ps-0 mb-3">
                                     <label class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control shadow-none" >
+                                    <input name="pass" type="password" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 p-0 mb-3">
                                     <label class="form-label">Confirmar Contraseña</label>
-                                    <input type="password" class="form-control shadow-none" >
+                                    <input name="cpass" type="password" class="form-control shadow-none" required>
                                 </div>
                             </div>
                         </div>
