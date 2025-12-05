@@ -2,3 +2,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="admin/css/principalAdmin.css">
+
+    <?php 
+
+    session_start();
+
+    date_default_timezone_set("Asia/Kolkata");
+    ?>
