@@ -18,14 +18,18 @@
                         <a class="nav-link text-white" href="dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-white" href="users.php">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="user_queries.php">Consultas de usuarios</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="rooms.php">Habitaciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="features_facilities.php">Acerca de Nosotros</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="user_queries.php">Consultas de usuarios</a>
-                    </li>
+                    
                     <!--<li class="nav-item">
                         <a class="nav-link text-white" href="carousel.php">Carousel</a>
                     </li>-->

@@ -28,7 +28,7 @@ adminLogin();
                     <div class="card-body">
                         <div class="text-end mb-4">
                             <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#add-room">
-                                <i class="bi bi-plus-square"></i> Add
+                                <i class="bi bi-plus-square"></i> Añadir
                             </button>
                         </div>
                         
@@ -64,12 +64,12 @@ adminLogin();
             <form id="add_room_form" autocomplete="off">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Room</h5>
+                        <h5 class="modal-title">Añadir Habitación</h5>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Name</label>
+                            <label class="form-label fw-bold">Nombre</label>
                             <input type="text" name="name" class="form-control shadow-none" required>
                         </div>
                         <div class=" col-md-6 mb-3">
@@ -77,23 +77,23 @@ adminLogin();
                             <input type="number" min="1" name="area" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Price</label>
+                            <label class="form-label fw-bold">Precio</label>
                             <input type="number" min="1" name="price" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Quantily</label>
+                            <label class="form-label fw-bold">Cantidad</label>
                             <input type="number" min="1" name="quantily" class="form-control shadow-none" required>
                         </div>
                           <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Adult (Max .)</label>
+                            <label class="form-label fw-bold">Adultos (Max .)</label>
                             <input type="number" min="1" name="adult" class="form-control shadow-none" required>
                         </div>
                          <div class=" col-md-6 mb-3">
-                            <label class="form-label fw-bold">Children (Max .)</label>
+                            <label class="form-label fw-bold">Niños (Max .)</label>
                             <input type="number" min="1" name="children" class="form-control shadow-none" required>
                         </div>
                         <div class=" col-12 mb-3">
-                           <label class="form-label fw-bold">Features</label>
+                           <label class="form-label fw-bold">Caracteristicas</label>
                            <div class="row">
                             <?php
                             $res = selectAll ('features');
@@ -111,7 +111,7 @@ adminLogin();
                            </div>
                         </div>
                         <div class=" col-12 mb-3">
-                           <label class="form-label fw-bold">Facilities</label>
+                           <label class="form-label fw-bold">Servicios</label>
                            <div class="row">
                             <?php
                             $res = selectAll ('features');
@@ -129,14 +129,14 @@ adminLogin();
                            </div>
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label fw-bold">Description</label>
+                            <label class="form-label fw-bold">Descripción</label>
                             <textarea name="desc" rows="4" class="form-control shadow-none" required></textarea>
                         </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCELAR</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">ENVIAR</button>
                     </div>
                 </div>
             </form>
