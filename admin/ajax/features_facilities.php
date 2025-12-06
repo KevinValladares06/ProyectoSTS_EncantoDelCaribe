@@ -64,7 +64,7 @@ if(isset($_POST['rem_feature'])) {
 if(isset($_POST['add_facility'])) {
     $frm_data = filteration($_POST);
     
-    $img_r = uploadImage($_FILES['icon'], FACILITIES_FOLDER);
+    $img_r = uploadSVGImage($_FILES['icon'], FEATURES_FOLDER);
     
     if($img_r == 'inv_img') {
         echo 'inv_img';

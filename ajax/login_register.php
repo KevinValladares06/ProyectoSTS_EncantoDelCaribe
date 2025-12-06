@@ -1,6 +1,4 @@
 <?php
-
-
 require('../admin/inc/db_config.php');
 require('../admin/inc/esenciales.php');
 require("../inc/sendgrid.php");
@@ -21,7 +19,7 @@ function send_mail($uemail,$name,$token,$type)
         $content = "reset your account";
     }
 
-
+}
 $email = new \SendGrid\Mail\Mail(); 
 $email->setFrom(SENDGRID_EMAIL, SENDGRID_NAME);
 $email->setSubject($subject);
@@ -32,22 +30,23 @@ $email->addContent(
     "text/html", 
     "
     Click the link to $content: <br>
-    <a href='".SITE_URL. $page?"email_confirm.php?$type&email=$uemail&token=$token"."'>
-    CLICK ME
+    <a href='" . SITE_URL . $page . "email_confirm.php?$type&email=$uemail&token=$token'>
+        CLICK ME
     </a>
     "
-    
 );
+
+
 $sendgrid = new \SendGrid(getenv(SENDGRID_API_KEY));
 
     try{
-     $sendgrid->send($email)
+     $sendgrid->send($email);
     return 1;
     }
     catch(Exception $e){
     return 0;
     }
-}
+
 
 
 if(isset($_POST['register']))
@@ -70,6 +69,7 @@ if(isset($_POST['register']))
     $u_exist_fetch = mysqli_fetch_assoc($u_exist);
     echo ($u_exist_fetch['email'] == $data['email']) ? 'email_already' : 'phone_already';
     exit;
+    }
 }
 
 if(isset($_POST['login']))
@@ -120,7 +120,7 @@ if(isset($_POST['recover_user'])){
 
     if (update(%query, $values, 'sssss'))
     {
-        echo 1:
+        echo 1;
     }
     else{
         echo 'failed';
@@ -152,10 +152,10 @@ if(isset($_POST['forgot_pass'])){
           }
           else
           {
-          $date = date("y-m-d");
+          $date = date("Y-m-d");
 
-          $query = (mysqli_query($con, "UPDATE 'user_cred'SET 'token'='$token', 't_expire' = '$date' 
-          WHERE 'id'= '$u_fetch[id]' "));
+          $query = mysqli_query($con, "UPDATE `user_cred` SET `token` ='$token', `t_expire` = '$date' 
+          WHERE `id`='$u_fetch[id]'");
 
           if($query){
           echo 1;
@@ -169,8 +169,6 @@ if(isset($_POST['forgot_pass'])){
     }
 }
 
-
-//upload user image to server
 
 $img = uploadUserImage($_FILES['profile']);
 
@@ -206,14 +204,6 @@ $img, $enc_pass, $token];
     else{
         echo 'ins_failed';
     }
-
-
-
-
-
-
-
-
 }
 
 
